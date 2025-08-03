@@ -1,3 +1,4 @@
+import { playSound, sleep } from "./script.js";
 import { Game } from "/Game.js";
 
 

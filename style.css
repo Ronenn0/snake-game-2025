@@ -37,8 +37,8 @@ body>header {
     width: 100%;
     text-align: center;
     padding: 15px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     white-space: nowrap;
 }
 
@@ -55,6 +55,51 @@ main {
     display: grid;
     grid-template-columns: repeat(var(--game-columns), 1fr);
     grid-template-rows: repeat(var(--game-rows), 1fr);
+    position: relative;
+}
+
+.start-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--snake-color);
+    color: white;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    gap: 10px;
+
+    & h3 {
+        font-size: 1.5rem;
+    }
+
+    & .start {
+        font-size: 2rem;
+        background-color: white;
+        color: var(--snake-head-color);
+        border: 1px solid white;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        transition: box-shadow 0.15s, scale 0.15s;
+    }
+
+    & .start:hover {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+        scale: 1.02;
+    }
+
+    & .start:active {
+        scale: 0.8;
+    }
+}
+
+.start-container.hidden {
+    display: none;
 }
 
 .snake-part {
@@ -214,12 +259,7 @@ img.food {
 
     body>header {
         display: flex;
-        flex-direction: column;
         gap: 5px;
-
-        &>.actions {
-            order: 2;
-        }
     }
 
     .game-over {

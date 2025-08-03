@@ -24,7 +24,7 @@ export function initializeNewGame() {
 
 /*  --------------------------  */
 
-initializeNewGame();
+// initializeNewGame();
 allEventListeners();
 
 /*  --------------------------  */
@@ -56,16 +56,42 @@ export function sleep(ms) {
  */
 function allEventListeners() {
 
+    const startContainer = document.querySelector('.start-container');
+    const startButton = document.querySelector('.start');
+    startButton.addEventListener('click', () => {
+        startContainer.classList.add('hidden');
+        initializeNewGame();
+    });
+
     //handles changing the snake's direction
     document.addEventListener('keydown', e => {
-        const direction = e.key;
-        game.snake.changeDirection(direction);
+        if (!game) return;
+        const input = e.key.toLowerCase();
+        switch (input) {
+            case 'w':
+            case 'arrowup':
+                game.snake.changeDirection('ArrowUp');
+                break;
+            case 's':
+            case 'arrowdown':
+                game.snake.changeDirection('ArrowDown');
+                break;
+            case 'a':
+            case 'arrowleft':
+                game.snake.changeDirection('ArrowLeft');
+                break;
+            case 'd':
+            case 'arrowright':
+                game.snake.changeDirection('ArrowRight');
+                break;
+        }
     });
 
     //restart button -> restarts the game
     const restartBtn = document.querySelectorAll('.restart');
     restartBtn.forEach(restartBtn => {
         restartBtn.addEventListener('click', () => {
+            if (!game) return;
             game.restart();
         });
     });
@@ -73,6 +99,7 @@ function allEventListeners() {
     //pause button -> pauses the game.
     const pauseBtn = document.querySelector('.pause');
     pauseBtn.addEventListener('click', () => {
+        if (!game) return;
         if (game.over) return;
         game.pause();
     });
@@ -80,6 +107,7 @@ function allEventListeners() {
     //play/resume button -> resumes the game.
     const resumeBtn = document.querySelector('.play');
     resumeBtn.addEventListener('click', () => {
+        if (!game) return;
         if (game.over) return;
         game.resume();
     });
@@ -89,7 +117,8 @@ function allEventListeners() {
     const controls = document.querySelectorAll('.controls i');
     controls.forEach(arrow => {
         arrow.addEventListener('click', () => {
+            if (!game) return;
             game.snake.changeDirection(arrow.getAttribute('value'));
         });
-    })
+    });
 }
