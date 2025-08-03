@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="icon" href="./images/snake.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="actions">
+            <img src="./images/restart.png" alt="Restart button" class="restart">
+            <img src="./images/pause.png" alt="Pause button" class="pause">
+            <img src="./images/play.png" alt="Pause button" class="play">
+
+        </div>
+        <h1>Snake Game</h1>
+    </header>
+    <div class="score">
+        <label for="current-score">Score:</label>
+        <h2 name="current-score" class="current-score">0</h2>
+    </div>
+    <main class="game">
+    </main>
+    <div class="controls">
+        <i class="fas fa-arrow-up up" value="ArrowUp"></i>
+        <i class="fas fa-arrow-left left" value="ArrowLeft"></i>
+        <i class="fas fa-arrow-right right" value="ArrowRight"></i>
+        <i class="fas fa-arrow-down down" value="ArrowDown"></i>
+    </div>
+    <div class="game-over hidden">
+        <div>
+            <label for="game-over-score">Score:</label>
+            <h2 name="game-over-score" class="game-over-score">0</h2>
+        </div>
+        <div>
+            <label for="game-over-highest-score">Highest score:</label>
+            <h2 name="game-over-highest-score" class="game-over-highest-score">0</h2>
+        </div>
+        <img src="./images/restart.png" alt="" class="restart">
+    </div>
+
+    <div class="sounds">
+        <audio id="game-over-sound" src="./sounds/game-over.mp3" preload="auto"></audio>
+        <audio id="eat-sound" src="./sounds/eat.mp3" preload="auto"></audio>
+    </div>
+
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
