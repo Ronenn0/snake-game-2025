@@ -1,4 +1,4 @@
-import { Game } from '/Game.js';
+import { Game } from "./Game.js";
 
 //CSS Variables
 const root = document.documentElement;
@@ -21,7 +21,6 @@ export function initializeNewGame() {
     game = new Game();
     game.loop();
 }
-
 /*  --------------------------  */
 
 // initializeNewGame();

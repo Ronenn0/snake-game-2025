@@ -1,5 +1,4 @@
-import { playSound, sleep } from "./script.js";
-import { Game } from "/Game.js";
+import { Game } from "./Game.js";
 
 
 export class Snake {
