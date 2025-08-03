@@ -1,4 +1,4 @@
-import { game, getCSSVariable, playSound, sleep, initializeNewGame } from './script.js';
+import { getCSSVariable, playSound, sleep, initializeNewGame } from './script.js';
 import { Snake } from './Snake.js';
 import { Food } from './Food.js';
 
